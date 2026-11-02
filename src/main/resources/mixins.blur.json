@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8.7-GTNH",
+  "package": "com.tterrag.blur.mixins",
+  "refmap": "mixins.blur.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [], "client": [], "server": []
+}

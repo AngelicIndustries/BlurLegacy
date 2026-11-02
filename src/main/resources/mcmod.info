@@ -1,16 +1,7 @@
-[
-{
-  "modid": "blur",
-  "name": "Blur",
-  "description": "Adds a blurry background when viewing GUIs",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "http://tterrag.com",
-  "updateUrl": "http://ci.tterrag.com/job/BlurBG",
-  "authorList": ["tterrag"],
-  "credits": "",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
-]
+[{
+  "modid": "${modId}", "name": "Blur Legacy", "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}", "description": "Configurable blur, gradients and transitions behind menus.",
+  "url": "https://github.com/AngelicIndustries/BlurLegacy", "authorList": ["Angelic Industries"],
+  "credits": "tterrag, Motschen, amiralimollaei, Polyfrost and QaBns",
+  "logoFile": "assets/blur/logo.png"
+}]
