@@ -61,7 +61,8 @@ public final class BlurRenderer extends Gui {
         if (rendered || failed || !BlurConfig.enabled || !OpenGlHelper.shadersSupported || !OpenGlHelper.isFramebufferEnabled()) return;
         rendered = true;
         float radius = BlurConfig.radius * BLUR.value();
-        if (radius < 0.01F) { PIPELINE.close(); return; }
+        // Keep the pipeline between menus; resizes, reloads and setting changes rebuild it.
+        if (radius < 0.01F) return;
         try {
             PIPELINE.render(radius, BlurPipeline.scaleFor(BlurConfig.radius, BlurConfig.downsample));
         } catch (Exception error) {

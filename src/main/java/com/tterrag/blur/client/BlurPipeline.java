@@ -118,8 +118,11 @@ final class BlurPipeline {
     }
 
     void close() {
+        boolean deleted = !targets.isEmpty();
         for (Shader pass : passes) pass.deleteShader();
         for (Framebuffer target : targets) target.deleteFramebuffer();
+        // Deleting a framebuffer binds the window's; mid-frame, the rest of the frame would draw there and flash.
+        if (deleted) Minecraft.getMinecraft().getFramebuffer().bindFramebuffer(false);
         passes.clear();
         blurs.clear();
         targets.clear();
