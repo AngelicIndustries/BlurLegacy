@@ -26,6 +26,13 @@ public final class ClientProxy extends CommonProxy {
     @SubscribeEvent public void onConfig(ConfigChangedEvent.OnConfigChangedEvent event) {
         if ("blur".equals(event.modID)) { BlurConfig.sync(); BlurRenderer.reset(); }
     }
+    /**
+     * The gradient goes behind every blurred screen, not only those that draw the vanilla background: books, for one,
+     * don't. A screen that does finds it already drawn this frame.
+     */
+    @SubscribeEvent public void onScreenBackground(GuiScreenEvent.DrawScreenEvent.Pre event) {
+        BlurRenderer.background(event.gui);
+    }
     @SubscribeEvent public void onScreen(GuiScreenEvent.DrawScreenEvent.Post event) {
         if (BlurConfig.showScreenID) Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(
             event.gui.getClass().getName(), 2, 2, 0x80DFFF);
